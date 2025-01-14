@@ -19,31 +19,36 @@ const num2 = 20;
 // TODO: num1과 num2가 10보다 큰지 확인하는 연산을 수행하세요.
 let num1GreaterThan;
 let num2GreaterThan;
-
+num1GreaterThan = num1 > 10;
+num2GreaterThan = num2 > 10;
 // TODO: num1과 num2가 10보다 작은지 확인하는 연산을 수행하세요.
 let num1LessThan;
 let num2LessThan;
-
+num1LessThan = num1 < 10;
+num2LessThan = num2 < 10;
 // TODO: num1과 num2가 10보다 크거나 같은지 확인하는 연산을 수행하세요.
 let num1GreaterThanOrEqual;
 let num2GreaterThanOrEqual;
-
+num1GreaterThanOrEqual = num1 >= 10;
+num2GreaterThanOrEqual = num2 >= 10;
 // TODO: num1과 num2가 10보다 작거나 같은지 확인하는 연산을 수행하세요.
 let num1LessThanOrEqual;
 let num2LessThanOrEqual;
+num1LessThanOrEqual = num1 <= 10;
+num2LessThanOrEqual = num2 <= 10;
 
 // TODO: num1과 num2가 모두 10보다 큰지 확인하는 연산을 수행하세요.
 let bothGreaterThan;
-
+bothGreaterThan = (num1 > 10 && num2 > 10);
 // TODO: num1과 num2가 모두 10보다 작은지 확인하는 연산을 수행하세요.
 let bothLessThan;
-
+bothLessThan = (num1 < 10 && num2 < 10);
 // TODO: num1과 num2 중 하나라도 10보다 큰지 확인하는 연산을 수행하세요.
 let eitherGreaterThan;
-
+eitherGreaterThan = (num1 > 10 || num2 > 10);
 // TODO: num1과 num2 중 하나라도 10보다 작은지 확인하는 연산을 수행하세요.
 let eitherLessThan;
-
+eitherLessThan = (num1 < 10 || num2 < 10);
 // export 를 수정하지 마세요.
 export {
   num1GreaterThan,

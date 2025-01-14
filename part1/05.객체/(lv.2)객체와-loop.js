@@ -10,6 +10,13 @@
  */
 function countProperties(obj) {
   // TODO
+  let cnt = 0;
+  if(typeof obj === 'object' && obj !== null){
+    for(let prop in obj){
+      cnt++;
+    }
+    return cnt;
+  }
 }
 
 export { countProperties };

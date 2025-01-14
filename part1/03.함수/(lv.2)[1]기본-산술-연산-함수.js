@@ -11,12 +11,12 @@
  */
 
 // TODO: 함수 이름이 add 인 함수를 작성하세요.
-
+const add = (x,y) => x+y;
 // TODO: 함수 이름이 subtract 인 함수를 작성하세요.
-
+const subtract = (x,y) => x-y;
 // TODO: 함수 이름이 multiply 인 함수를 작성하세요.
-
+const multiply = (x,y) => x*y;
 // TODO: 함수 이름이 divide 인 함수를 작성하세요.
-
+const divide = (x,y) => x/y;
 // export 를 수정하지 마세요.
 export { add, subtract, multiply, divide };
