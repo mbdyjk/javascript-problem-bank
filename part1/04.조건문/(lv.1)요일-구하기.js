@@ -27,7 +27,7 @@ function getDayName(dayNumber) {
     case 7:
       return "일";
     default:
-      break;
+      return "Invalid";
   }
 }
 
