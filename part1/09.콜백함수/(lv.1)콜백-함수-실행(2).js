@@ -12,6 +12,8 @@
  */
 function chainCallbacks(initialValue, callback1, callback2) {
   // TODO: 두 콜백을 차례로 호출한 결과값을 반환하세요.
+  const result = callback1(initialValue);
+  return callback2(result);
 }
 
 // export를 수정하지 마세요.

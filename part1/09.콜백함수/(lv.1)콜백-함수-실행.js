@@ -11,6 +11,11 @@
  */
 function executeCallback(callback, number) {
   // TODO: 콜백 함수를 실행해, 그 결과가 반환되도록 작성하세요.
+  return callback(number);
+}
+
+function callback(number) {
+  return number * 2;
 }
 
 // export를 수정하지 마세요.
