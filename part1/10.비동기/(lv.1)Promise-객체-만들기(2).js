@@ -5,7 +5,9 @@
  *
  * @returns {Promise<string>}
  */
-function returnHello() {}
+function returnHello() {
+  return new Promise((resolve, reject) => resolve("Hello"));
+}
 
 // export를 수정하지 마세요.
 export { returnHello };

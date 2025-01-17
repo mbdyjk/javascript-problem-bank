@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "cross-env husky",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "check": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --json --outputFile=test-results.json || true",
+    "check": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --json --outputFile=test-results.json || exit /b 0",
     "open": "cross-env node scripts/openTestReport.js",
     "check:open": "npm run check && npm run open"
   },
