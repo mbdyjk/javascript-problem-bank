@@ -16,7 +16,16 @@
  * @returns {object}
  */
 
-function mergeObjects(...objs) {}
+function mergeObjects(...objs) {
+  let result = {};
+
+  for (const obj of objs) {
+    for (let prop in obj) {
+      result[prop] = obj[prop];
+    }
+  }
+  return result;
+}
 
 // export를 수정하지 마세요.
 export { mergeObjects };

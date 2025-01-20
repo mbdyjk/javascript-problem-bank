@@ -14,7 +14,29 @@
  * @returns {{ recordUserAction: Function, getUserActions: Function }}
  */
 
-function createUserLogger() {}
+function createUserLogger() {
+  const userLogs = new Map();
+
+  function recordUserAction(userId, action) {
+    if (!userLogs.has(userId)) {
+      userLogs.set(userId, new Set());
+    }
+    // 배열이나 객체와 다르게 get 메서드를 통해 value를 가져올 수 있다.
+    userLogs.get(userId).add(action);
+  }
+
+  function getUserActions(userId) {
+    if (userLogs.has(userId)) {
+      // Set을 Array로 변경하는 2가지 방법
+      // Array.from이 큰 데이터셋에 대해서는 약간 더 효율적, 미미한 차이
+      //return Array.from(userLogs.get(userId));
+      return [...userLogs.get(userId)];
+    }
+    return [];
+  }
+
+  return { recordUserAction, getUserActions };
+}
 
 // export 를 수정하지 마세요.
 export { createUserLogger };
