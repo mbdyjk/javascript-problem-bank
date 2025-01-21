@@ -11,7 +11,21 @@
  */
 
 // TODO: 함수를 작성하세요.
-function getFrequency(arr) {}
+function getFrequency(arr) {
+  const obj = {};
+  //   for (const elem of arr) {
+  //     if (obj.hasOwnProperty(key)) {
+  //       obj[key] += 1;
+  //     } else {
+  //       obj[key] = 1;
+  //     }
+  //   }
+  //   return obj;
+  arr.forEach((elem) => {
+    obj[key] = (obj[key] || 0) + 1;
+  });
+  return obj;
+}
 
 // export 를 수정하지 마세요.
 export { getFrequency };
