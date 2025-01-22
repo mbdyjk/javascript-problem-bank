@@ -11,20 +11,25 @@
  */
 
 // TODO: 함수를 작성하세요.
+// function getFrequency(arr) {
+//   const obj = {};
+//   arr.forEach((elem) => {
+//     obj[elem] = (obj[elem] || 0) + 1;
+//   });
+//   return obj;
+// }
+
 function getFrequency(arr) {
-  const obj = {};
-  //   for (const elem of arr) {
-  //     if (obj.hasOwnProperty(key)) {
-  //       obj[key] += 1;
-  //     } else {
-  //       obj[key] = 1;
-  //     }
-  //   }
-  //   return obj;
+  // 객체를 사용하면 key가 문자열 형태로만 들어가서 Map을 사용용
+  const map = new Map();
+
   arr.forEach((elem) => {
-    obj[key] = (obj[key] || 0) + 1;
+    map.set(elem, (map.get(elem) || 0) + 1);
   });
-  return obj;
+
+  // 키-값 배열, map 객체를 일반 객체 형태로 변환
+  // Object.entries는 객체를 키-값 2차원 배열 형태로 바꾼다.
+  return Object.fromEntries(map);
 }
 
 // export 를 수정하지 마세요.

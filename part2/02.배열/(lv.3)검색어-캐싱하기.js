@@ -17,11 +17,24 @@ let topKeywordsCache = [];
 
 function updateTopKeywords(keywords) {
   // TODO
+  // 1. 키워드별 검색 횟수 객체 형태로 저장
+  const searchNumByKeywordObj = keywords.reduce((obj, keyword) => {
+    obj[keyword] = (obj[keyword] ?? 0) + 1;
+    return obj;
+  }, {});
+  // 2. 횟수 내림차순으로 정렬, topKeywordsCache에 저장
+  // 객체 내에서 value 기준 정렬은 배열로 변환하여 1번 index 요소 기준 정렬을 한다.
+  // 배열의 첫번째 요소를 구조분해 할당하여 map 메서드 실행
+  const sortedArr = Object.entries(searchNumByKeywordObj)
+    .sort((a, b) => b[1] - a[1])
+    .map(([keyword]) => keyword);
+
+  topKeywordsCache = sortedArr.slice(0, 10);
 }
 
 function getTopKeywords() {
   // TODO
-  return [];
+  return topKeywordsCache;
 }
 
 // export를 수정하지 마세요.

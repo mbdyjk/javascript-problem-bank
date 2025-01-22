@@ -10,7 +10,22 @@
  * @returns {any[][]}
  */
 
-function chunkArray(arr, size) {}
+function chunkArray(arr, size) {
+  const matrix = [];
+  //   for (let i = 0; i < arr.length; i += size) {
+  //     let lastIndex = i + size - 1;
+  //     if (lastIndex >= arr.length) {
+  //       lastIndex = arr.length - 1;
+  //       matrix.push(arr.slice(i, lastIndex));
+  //     } else {
+  //       matrix.push(arr.slice(i, i + size));
+  //     }
+  //   }
+  for (let i = 0; i < arr.length; i += size) {
+    matrix.push(arr.slice(i, i + size));
+  }
+  return matrix;
+}
 
 // export 를 수정하지 마세요.
 export { chunkArray };
