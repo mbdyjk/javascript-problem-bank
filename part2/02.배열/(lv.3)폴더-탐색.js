@@ -18,7 +18,16 @@
  */
 
 // TODO: getAllFolderNames 함수를 작성하세요.
-function getAllFolderNames(folder) {}
+function getAllFolderNames(folder) {
+  let result = [];
+  for (let propKey in folder) {
+    if (propKey === "name") result.push(folder[propKey]);
+    else if (typeof folder[propKey] === "object" && folder[propKey] != null) {
+      result = [...result, ...getAllFolderNames(folder[propKey])];
+    }
+  }
+  return result;
+}
 
 // export 를 수정하지 마세요.
 export { getAllFolderNames };
