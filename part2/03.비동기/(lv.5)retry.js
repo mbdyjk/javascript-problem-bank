@@ -10,7 +10,36 @@
  * @returns {Promise<any>}
  */
 
-function retryRequest(promiseFactory, retries) {}
+function retryRequest(promiseFactory, retries) {
+  return new Promise((resolve, reject) => {
+    const attempt = (count) => {
+      promiseFactory()
+        .then(resolve)
+        .catch((err) => {
+          if (count > 0) {
+            attempt(count - 1);
+          } else {
+            reject(err);
+          }
+        });
+    };
+    attempt(retries);
+  });
+}
+
+// async function retryRequest(promiseFactory, retries) {
+//     let error;
+
+//     for(let i = 0 ; i < retries; i++){
+//         try{
+//             return await promiseFactory();
+//         } catch(err){
+//             error = err;
+//         }
+//     }
+
+//     throw error;
+// }
 
 // export 를 수정하지 마세요.
 export { retryRequest };
