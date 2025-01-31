@@ -10,7 +10,21 @@
  */
 
 // TODO: debounce 함수를 작성하세요.
-function debounce(func, delay) {}
+// 클로저 함수는 내부 함수를 정의하여 리턴하는 형태를 가진다.
+// 클로저를 통해 내부 함수에서 외부 함수의 변수에 접근할 수 있다.
+// 함수가 선언될 때의 환경을 기억해 외부 함수가 종료된 후에도
+// 그 함수의 변수를 참조할 수 있고 캡슐화로 데이터 은닉이 가능
+function debounce(func, delay) {
+  let timer;
+
+  return function (...args) {
+    const context = this;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(context, args);
+    }, delay);
+  };
+}
 
 // export 를 수정하지 마세요.
 export { debounce };
