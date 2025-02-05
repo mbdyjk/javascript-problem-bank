@@ -12,7 +12,17 @@
  * @returns {number}
  */
 
-function daysBetween(date1, date2) {}
+function daysBetween(date1, date2) {
+  // Date 객체를 통해 밀리세컨드 기준 time을 리턴받는다.
+  const date1Obj = new Date(date1);
+  const date2Obj = new Date(date2);
+
+  const diff = Math.abs(date2Obj - date1Obj);
+  // 밀리세컨드를 일 단위로 바꾸기 위해 단위값을 계산
+  const ratio = 1000 * 60 * 60 * 24;
+  // n일 이상 n+1일 미만을 전부 n일로 본다.
+  return Math.floor(diff / ratio);
+}
 
 // export 를 수정하지 마세요.
 export { daysBetween };
