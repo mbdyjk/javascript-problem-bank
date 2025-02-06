@@ -10,7 +10,16 @@
  * @returns {string}
  */
 
-function formatDate(date) {}
+function formatDate(date) {
+  const year = date.getFullYear();
+  // padStart 메서드를 통해 문자열 두자리를 보장하고, 짧을 경우 앞에 0을 추가
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+
+  return `${year}년 ${month}월 ${day}일 ${hours}시 ${minutes}분`;
+}
 
 // export를 수정하지 마세요.
 export { formatDate };
