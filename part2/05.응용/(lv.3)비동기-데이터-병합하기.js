@@ -22,7 +22,20 @@
  */
 
 // TODO: asyncDataMerger 함수를 작성하세요.
-async function asyncDataMerger(...asyncFunctions) {}
+async function asyncDataMerger(...asyncFunctions) {
+  const result = await Promise.all(asyncFunctions.map((fn) => fn()));
+  // 결과 배열을 단일 배열로 만드는 flat 메서드 사용
+  const mergedData = result.flat();
+
+  // key: id, value: 객체 형태로 새로운 객체를 만든다.
+  const overwrittenData = mergedData.reduce((acc, data) => {
+    // acc[data.id] = data;
+    acc[data.id] = { ...acc[data.id], ...data }; // 이렇게 해야 기존 객체를 유지하며 새로운 객체를 덮어쓸 수 있다.
+    return acc;
+  }, {});
+
+  return Object.values(overwrittenData).sort((a, b) => a.id - b.id);
+}
 
 // export를 수정하지 마세요.
 export { asyncDataMerger };
