@@ -13,7 +13,19 @@
  * @returns {number}
  */
 
-function calculateDiscount(price, coupon) {}
+function calculateDiscount(price, coupon) {
+  if (!coupon) return price;
+
+  if (coupon.type === "percent" && typeof coupon.rate === "number") {
+    return price * (1 - coupon.rate);
+  }
+
+  if (coupon.type === "fixed" && typeof coupon.amount === "number") {
+    return Math.max(0, price - coupon.amount);
+  }
+
+  return price;
+}
 
 // export 를 수정하지 마세요.
 export { calculateDiscount };
