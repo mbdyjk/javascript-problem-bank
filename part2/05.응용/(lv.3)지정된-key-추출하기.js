@@ -11,7 +11,16 @@
  * @returns {object}
  */
 
-function pickKeys(obj, keys) {}
+function pickKeys(obj, keys) {
+  const result = {};
+  keys.forEach((key) => {
+    // 얕은 복사
+    if (key in obj) {
+      result[key] = obj[key];
+    }
+  });
+  return result;
+}
 
 // export 를 수정하지 마세요.
 export { pickKeys };
