@@ -10,6 +10,17 @@
  * @returns {object}
  */
 
-function parseQueryString(queryString) {}
+function parseQueryString(queryString) {
+  if (!queryString || queryString === "?") return {};
+
+  return queryString
+    .slice(1)
+    .split("&")
+    .reduce((acc, param) => {
+      const [key, value] = param.split("=");
+      acc[key] = value !== undefined ? decodeURIComponent(value) : "";
+      return acc;
+    }, {});
+}
 
 export { parseQueryString };
