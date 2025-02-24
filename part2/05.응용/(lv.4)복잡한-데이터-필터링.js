@@ -36,6 +36,24 @@
  * @returns {Array}
  */
 
-function filterComplexData(data, conditions) {}
+function filterComplexData(data, conditions) {
+  return data.filter((item) => {
+    return Object.keys(conditions).every((key) => {
+      const keys = key.split(".");
+
+      let value = item;
+      for (let i = 0; i < keys.length; i++) {
+        value = value[keys[i]];
+        if (value === undefined) return false;
+      }
+
+      if (Array.isArray(value)) {
+        return value.includes(conditions[key]);
+      }
+
+      return value === conditions[key];
+    });
+  });
+}
 
 export { filterComplexData };
